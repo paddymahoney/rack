@@ -366,7 +366,7 @@ module Rack
     # String#bytesize under 1.9.
     if ''.respond_to?(:bytesize)
       def bytesize(string)
-        string.bytesize
+        string.to_s.bytesize #force string
       end
     else
       def bytesize(string)
